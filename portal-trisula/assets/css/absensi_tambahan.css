@@ -1,0 +1,76 @@
+/* ===== Halaman Absensi — tempel di PALING BAWAH assets/css/dashboard.css ===== */
+.abs-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+.abs-stat {
+    background: #fff; border: 1px solid #e5eae7; border-radius: 12px;
+    padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+}
+.abs-stat small  { color: #6b7280; font-size: 14px; }
+.abs-stat strong { font-size: 32px; font-weight: 700; color: #0f1f17; line-height: 1.2; }
+.abs-stat span   { font-size: 13px; font-weight: 500; }
+.abs-stat .ok    { color: #0a6b3a; }
+.abs-stat .warn  { color: #e17100; }
+
+.abs-panel { padding: 0; overflow: hidden; margin-bottom: 24px; }
+.abs-head  { padding: 20px 24px; border-bottom: 1px solid #eef1ef; }
+.abs-head h3 { margin: 0; font-size: 18px; font-weight: 600; color: #0f1f17; }
+.abs-head p  { margin: 2px 0 0; font-size: 14px; color: #6b7280; }
+
+.abs-fill {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px; border-bottom: 1px solid #eef1ef;
+}
+.abs-fill:last-child { border-bottom: 0; }
+
+.abs-date {
+    width: 50px; height: 50px; border-radius: 10px; background: #e8f1ec; color: #004029;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.abs-date b    { font-size: 18px; line-height: 1.1; }
+.abs-date span { font-size: 11px; font-weight: 600; }
+
+.abs-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.abs-info b     { font-size: 16px; color: #0f1f17; }
+.abs-info small { color: #6b7280; font-size: 14px; }
+
+.abs-actions { display: flex; gap: 10px; margin: 0; }
+.abs-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+    background: #fff; color: #e17100; border: 1px solid #f8d9b0; font-family: inherit;
+    transition: background .15s;
+}
+.abs-btn:hover { background: #fff6ea; }
+.abs-btn--hadir { background: #0a4a30; color: #fff; border-color: #0a4a30; }
+.abs-btn--hadir:hover { background: #00593a; }
+
+.abs-table { margin: 20px 24px 24px; border: 1px solid #e5eae7; border-radius: 10px; overflow: hidden; }
+.abs-tr {
+    display: grid; grid-template-columns: 1.1fr 1fr 2fr 1fr 1fr; gap: 16px; align-items: center;
+    padding: 14px 20px; border-bottom: 1px solid #eef1ef; font-size: 14px; color: #1f2937;
+}
+.abs-tr:last-child { border-bottom: 0; }
+.abs-th { background: #e8f5ee; color: #004029; font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 12px 20px; }
+.abs-ek { font-weight: 600; color: #0f1f17; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.abs-tr .muted { color: #6b7280; }
+
+.abs-pill {
+    display: inline-flex; align-items: center; gap: 6px; font-style: normal;
+    font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 999px;
+}
+.abs-pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.abs-hadir { background: #d1e7dc; color: #0a4a30; }
+.abs-izin  { background: #dbeafe; color: #1d4ed8; }
+.abs-sakit { background: #fde9c8; color: #b45309; }
+.abs-alpa  { background: #fee2e2; color: #b91c1c; }
+
+.abs-panel .empty { padding: 28px 24px; text-align: center; color: #6b7280; margin: 0; }
+
+@media (max-width: 1100px) { .abs-stats { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 800px) {
+    .abs-stats { grid-template-columns: repeat(2, 1fr); }
+    .abs-fill { flex-wrap: wrap; }
+    .abs-actions { width: 100%; }
+    .abs-th { display: none; }
+    .abs-tr { grid-template-columns: 1fr; gap: 4px; }
+}
