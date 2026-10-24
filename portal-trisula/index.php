@@ -55,8 +55,8 @@ $keterangan = [
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portal Ekstrakurikuler SMA Trisula Praja</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Condiment&family=Concert+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Condiment&family=Concert+One&family=Baloo+Bhaina+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/assets/css/style.css') ?>">
 </head>
 <body>
 

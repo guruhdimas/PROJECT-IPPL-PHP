@@ -87,240 +87,132 @@ a { color:inherit; text-decoration:none; } button { font-family:inherit; }
     .pb-tr, .pb-table--aktif .pb-tr { grid-template-columns:1fr 1fr; text-align:left; }
 }
 
+/* ===== Komponen bersama halaman pembimbing ===== */
+.pb-form label { display:block; font-size:13px; font-weight:600; margin-bottom:12px; }
+.pb-form input, .pb-form select, .pb-form textarea { display:block; width:100%; margin-top:6px; border:1px solid #d1d5db; border-radius:8px; padding:9px 12px; font:inherit; font-size:13px; background:#fff; }
+.pb-form textarea { resize:vertical; min-height:90px; }
+.pb-form input:focus, .pb-form select:focus, .pb-form textarea:focus { outline:2px solid #0f5c3a; border-color:#0f5c3a; }
+.pb-two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.pb-modal-wide { width:min(820px,100%); }
+.pb-save { background:#0f5c3a; color:#fff; border:0; border-radius:8px; padding:9px 22px; font-weight:700; font-size:13px; cursor:pointer; } .pb-save:hover { background:#0a4a2e; }
+.pb-btn { display:inline-flex; align-items:center; gap:6px; background:#0f5c3a; color:#fff; border:0; border-radius:8px; padding:10px 18px; font-weight:700; font-size:13px; cursor:pointer; }
+.pb-card0 { background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+.pb-head2 { background:var(--g2); color:#fff; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; } .pb-head2 h2 { font-size:16px; font-weight:800; } .pb-head2 p { font-size:13px; font-weight:600; margin-top:2px; }
+.pb-head2 .pb-add { background:rgba(255,255,255,.25); color:#fff; border-radius:10px; padding:10px 18px; font-size:13px; font-weight:700; } .pb-head2 .pb-add:hover { background:var(--gold); color:#4a3b00; }
 
-/* ===== Kelola Tugas Pembimbing — tempel di PALING BAWAH assets/css/pembimbing.css ===== */
-.pb-tg-panel { border:1px solid #e2e8f0; }
-.pb-tg-head { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:20px 24px; border-bottom:1px solid #e5e7eb; }
-.pb-tg-head h2 { font-size:16px; font-weight:800; } .pb-tg-head p { font-size:13px; color:var(--mut); margin-top:2px; }
-.pb-tg-add { background:#0f4d30; color:#fff; font-weight:700; font-size:13px; border-radius:8px; padding:10px 18px; white-space:nowrap; }
-.pb-tg-add:hover { background:#0a5a3c; }
+/* ===== Jadwal ===== */
+.pbj-layout { display:grid; grid-template-columns:1fr 340px; gap:22px; align-items:start; }
+.pbj-head { background:var(--g2); color:#fff; padding:18px 22px; display:flex; justify-content:space-between; gap:14px; align-items:center; flex-wrap:wrap; }
+.pbj-head h3 { font-size:15px; } .pbj-head p { font-size:12px; opacity:.85; }
+.pbj-tools { display:flex; gap:10px; align-items:center; } .pbj-tools select { height:36px; border:0; border-radius:8px; padding:0 12px; font:inherit; font-size:13px; }
+.pbj-add { background:rgba(255,255,255,.18); color:#fff; border-radius:8px; padding:9px 16px; font-size:13px; font-weight:700; white-space:nowrap; } .pbj-add:hover { background:var(--gold); color:#4a3b00; }
+.pbj-body { padding:18px 20px 22px; }
+.pbj-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; } .pbj-bar h3 { font-size:16px; }
+.pbj-nav { display:flex; gap:6px; } .pbj-nav a { border:1px solid #d1d5db; border-radius:6px; padding:5px 12px; font-size:12px; font-weight:600; background:#fff; } .pbj-nav a:hover { background:#f3f4f6; }
+.pbc { display:grid; grid-template-columns:repeat(7,1fr); border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; }
+.pbc .dow { background:#e8f3ee; color:#004029; font-size:12px; font-weight:700; text-align:center; padding:8px 0; }
+.pbc .cell { min-height:84px; padding:7px; border-top:1px solid #e5e7eb; border-right:1px solid #e5e7eb; display:flex; flex-direction:column; gap:4px; min-width:0; } .pbc .cell:nth-child(7n) { border-right:0; }
+.pbc a.cell:hover { background:#f8fafc; } .pbc .cell.off { background:#f8fafc; }
+.pbc .cell b { font-size:12px; width:22px; height:22px; display:grid; place-items:center; }
+.pbc .today { background:#e8f3ee; } .pbc .today b { background:#0f5c3a; color:#fff; border-radius:50%; } .pbc .sel { outline:2px solid #0f5c3a; outline-offset:-2px; }
+.pbc .chip { display:block; background:#d0e6dc; color:#00301f; border-radius:4px; font-size:10px; font-weight:700; padding:2px 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.pbc .cell small { font-size:10px; color:#6b7280; }
+.pbj-side { background:#fff; border-radius:14px; box-shadow:0 1px 3px rgba(0,0,0,.06); overflow:hidden; }
+.pbj-side header { padding:18px 22px; border-bottom:1px solid #e5e7eb; } .pbj-side header h3 { font-size:16px; } .pbj-side header p { font-size:12px; color:#6b7280; }
+.pbj-day { padding:14px 22px; border-bottom:1px solid #e5e7eb; display:flex; flex-direction:column; gap:10px; }
+.pbj-ev { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; border-left:3px solid #0f5c3a; background:#f8fafc; border-radius:6px; padding:9px 12px; }
+.pbj-ev b { display:block; font-size:13px; } .pbj-ev small { display:block; font-size:11px; color:#6b7280; }
+.pbj-del { background:#fee2e2; color:#dc2626; border:0; border-radius:6px; padding:4px 10px; font-size:11px; font-weight:700; cursor:pointer; }
+.pbj-soon { padding:16px 22px 20px; } .pbj-soon h4 { font-size:11px; letter-spacing:.06em; color:#6b7280; margin-bottom:10px; }
+.pbj-soon > div { display:flex; justify-content:space-between; gap:8px; font-size:13px; padding:6px 0; } .pbj-soon small { color:#6b7280; font-size:13px; white-space:nowrap; }
+@media (max-width:1000px) { .pbj-layout { grid-template-columns:1fr; } .pbc .cell { min-height:60px; padding:4px; } }
 
-.pb-tg-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:22px 8%; }
-.pb-tg-card { border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px; display:flex; flex-direction:column; gap:6px; background:#fff; }
-.pb-tg-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
-.pb-tg-top small { font-size:12px; font-weight:700; color:#0f4d30; }
-.pb-tg-chip { font-style:normal; font-size:11px; font-weight:700; border-radius:999px; padding:2px 10px; }
-.pb-tg-chip.on { background:#cfe6dc; color:#0f4d30; } .pb-tg-chip.off { background:#eef0f3; color:#5b6472; }
-.pb-tg-card h3 { font-size:16px; font-weight:700; color:#0f1f17; }
-.pb-tg-card p { font-size:13px; color:#64748b; }
-.pb-tg-dl { font-size:12px; color:#c00; margin-top:4px; }
-.pb-tg-count { align-self:flex-start; margin-top:8px; background:#e6f3ec; color:#0f4d30; font-weight:700; font-size:12px; border-radius:6px; padding:8px 12px; }
-.pb-tg-count:hover { background:#cfe6dc; }
+/* ===== Tugas ===== */
+.pbt-head { padding:18px 24px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e5e7eb; } .pbt-head h3 { font-size:15px; } .pbt-head p { font-size:12px; color:#6b7280; }
+.pbt-grid { padding:22px; display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.pbt-card { border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px; display:flex; flex-direction:column; gap:4px; box-shadow:0 1px 3px rgba(0,0,0,.05); }
+.pbt-top { display:flex; justify-content:space-between; align-items:center; } .pbt-top small { color:#0f5c3a; font-weight:700; font-size:11px; }
+.pbt-st { background:#d0e6dc; color:#004029; border-radius:999px; padding:1px 10px; font-size:11px; font-weight:700; } .pbt-st.off { background:#e5e7eb; color:#6b7280; }
+.pbt-card h4 { font-size:15px; } .pbt-card p { font-size:12px; color:#6b7280; } .pbt-dl { color:#dc2626; font-size:11px; margin:4px 0; }
+.pbt-count { align-self:flex-start; background:#e8f3ee; color:#004029; border-radius:6px; padding:6px 12px; font-size:12px; font-weight:700; } .pbt-count:hover { background:var(--mint); }
+.pbt-table { border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; }
+.pbt-tr { display:grid; grid-template-columns:1.2fr 1.6fr .9fr .6fr 1fr .8fr; gap:10px; align-items:center; padding:10px 14px; font-size:12px; border-top:1px solid #e5e7eb; }
+.pbt-th { background:#e8f3ee; color:#004029; font-size:10.5px; font-weight:700; border-top:0; }
+.pbt-file { color:#0f5c3a; font-weight:600; word-break:break-all; } .pbt-file:hover { text-decoration:underline; }
+.pbt-tr input[type=text] { width:56px; border:1px solid #d1d5db; border-radius:8px; padding:7px 8px; text-align:center; font:inherit; font-size:13px; }
+.pbt-tr .pb-save { padding:7px 14px; font-size:12px; }
+.pb-hint { font-size:11px; color:#6b7280; margin-top:10px; } .pb-mut { color:#6b7280; } .pb-red { color:#dc2626; font-weight:600; }
+@media (max-width:900px) { .pbt-grid { grid-template-columns:1fr; } .pbt-tr { grid-template-columns:1fr 1fr; } .pbt-th { display:none; } }
 
-.pb-modal--wide { width:min(720px,100%); }
-.pb-modal--form { width:min(460px,100%); }
-.pb-tg-table { border:1px solid #d6dbe0; border-radius:8px; overflow:hidden; }
-.pb-tg-tr { display:grid; grid-template-columns:1.1fr 1.6fr 1fr .8fr 1fr .9fr; gap:10px; align-items:center; padding:10px 14px; border-top:1px solid #e5e7eb; font-size:13px; }
-.pb-tg-th { border-top:0; background:#e8f3ee; color:#004029; font-size:11px; font-weight:700; }
-.pb-tg-file { color:#0f4d30; overflow-wrap:anywhere; } .pb-tg-file:hover { text-decoration:underline; }
-.pb-tg-nilai { display:inline-block; min-width:54px; text-align:center; border:1px solid #d6dbe0; border-radius:8px; padding:8px 10px; font-weight:600; }
-.pb-tg-btn { display:inline-block; background:#0f4d30; color:#fff; font-weight:700; font-size:11px; border-radius:6px; padding:7px 12px; }
-.pb-tg-btn:hover { background:#0a5a3c; }
-.pb-save { background:#0f4d30; color:#fff; border:0; border-radius:8px; padding:9px 18px; font-weight:700; font-size:13px; cursor:pointer; }
-.pb-save:hover { background:#0a5a3c; }
+/* ===== Absensi ===== */
+.pba-pick { display:flex; gap:10px; margin-left:auto; flex-wrap:wrap; } .pba-pick select { height:34px; border:0; border-radius:8px; padding:0 12px; font:inherit; font-size:12px; max-width:260px; }
+.pba-table .pb-tr { grid-template-columns:1.5fr 1fr 3fr; text-align:left; } .pba-table .pb-tr > span:nth-child(2) { text-align:center; }
+.pba-opts { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+.pba-opt { cursor:pointer; } .pba-opt input { position:absolute; opacity:0; pointer-events:none; }
+.pba-opt span { display:inline-block; min-width:68px; text-align:center; border:1.5px solid #111; border-radius:999px; padding:5px 14px; font-size:12px; font-weight:700; background:#fff; }
+.pba-opt input:checked + span { background:#0f5c3a; border-color:#0f5c3a; color:#fff; }
+.pba-opt input:focus-visible + span { outline:2px solid #0f5c3a; outline-offset:2px; }
+.pba-save { display:flex; justify-content:flex-end; margin-top:16px; }
+.pba-rekap .pb-tr > span:last-child { text-align:right; padding-right:24px; }
+.pba-s { font-weight:800; } .pba-hadir { color:#0f5c3a; } .pba-izin { color:#1d4ed8; } .pba-sakit { color:#b45309; } .pba-alpa { color:#dc2626; } .pba-none { color:#9ca3af; font-weight:600; }
 
-.pb-fl { display:block; margin-bottom:14px; } .pb-fl span { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
-.pb-fl input, .pb-fl select, .pb-fl textarea { width:100%; border:1px solid #d6dbe0; border-radius:8px; padding:10px 12px; font:inherit; font-size:13px; background:#fff; }
-.pb-fl input:focus, .pb-fl select:focus, .pb-fl textarea:focus { outline:none; border-color:#0f4d30; }
-.pb-fl textarea { resize:vertical; }
-.pb-modal-body .pb-flash { margin-bottom:14px; }
+/* ===== Pengumuman ===== */
+.pbp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.pbp-card { position:relative; border:1px solid #9ca3af; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:4px; background:#fff; }
+.pbp-card:hover { border-color:#0f5c3a; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.pbp-card h3 { font-size:14px; padding-right:44px; } .pbp-card p { font-size:12px; color:#6b7280; flex:1; margin-bottom:4px; }
+.pbp-card small { font-size:11px; } .pbp-card small span { color:#6b7280; } .pbp-cm { color:#6b7280; margin-top:4px; }
+.pbp-new { position:absolute; right:12px; top:12px; background:#7ec8e3; color:#fff; font-style:normal; font-size:9px; font-weight:700; border-radius:999px; padding:1px 10px; }
+.pbp-detail { overflow:hidden; } .pbp-dh { background:var(--g2); color:#fff; border-bottom:0 !important; align-items:flex-start !important; padding:18px 24px !important; } .pbp-dh h3 { font-size:18px; margin-top:6px; } .pbp-dh a { color:#fff !important; border:1.5px solid #fff; border-radius:50%; width:26px; height:26px; display:grid; place-items:center; font-size:12px; }
+.pbp-newtag { background:#b9e1d1; color:#004029; font-style:normal; font-size:10px; font-weight:700; border-radius:999px; padding:2px 12px; }
+.pbp-cols { display:grid; grid-template-columns:1fr 1fr; }
+.pbp-left { padding:20px 24px; border-right:1px solid #e5e7eb; font-size:13px; } .pbp-left p { line-height:1.6; margin-bottom:16px; }
+.pbp-meta { background:#f3f4f6; border-radius:10px; padding:12px 14px; display:grid; grid-template-columns:1fr 1fr; gap:10px; } .pbp-meta small { display:block; font-size:10px; color:#6b7280; } .pbp-meta b { font-size:12px; }
+.pbp-right { padding:20px 24px; } .pbp-ch { display:flex; justify-content:space-between; margin-bottom:10px; } .pbp-ch span { background:#e8f3ee; color:#004029; font-size:11px; border-radius:999px; padding:1px 10px; }
+.pbp-cl { display:flex; flex-direction:column; gap:8px; max-height:190px; overflow:auto; margin-bottom:12px; }
+.pbp-c { background:#f3f4f6; border-radius:8px; padding:8px 12px; } .pbp-c > div { display:flex; justify-content:space-between; } .pbp-c small { color:#9ca3af; font-size:10px; } .pbp-c p { font-size:12px; margin-top:2px; }
+@media (max-width:1000px) { .pbp-grid { grid-template-columns:1fr 1fr; } .pbp-cols { grid-template-columns:1fr; } .pbp-left { border-right:0; border-bottom:1px solid #e5e7eb; } .pba-table .pb-tr { grid-template-columns:1fr; } .pba-opts { justify-content:flex-start; } }
 
-@media (max-width:1000px) {
-    .pb-tg-grid { grid-template-columns:1fr; padding:18px; }
-    .pb-tg-tr { grid-template-columns:1fr 1fr; }
-    .pb-tg-th { display:none; }
-}
+/* ===== Indeks Penilaian ===== */
+.pbn-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.pbn-card { border:1px solid #9ca3af; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:6px; } .pbn-card h3 { font-size:14px; } .pbn-card p { font-size:11px; color:#777; line-height:1.4; flex:1; }
+.pbn-q { display:flex; justify-content:space-between; font-size:11px; color:#6b7280; } .pbn-q b { color:#111; }
+.pbn-bar { height:5px; background:#e5e7eb; border-radius:999px; overflow:hidden; } .pbn-bar i { display:block; height:100%; background:#2e7d32; }
+.pbn-sub { display:flex; justify-content:space-between; margin-bottom:12px; font-size:13px; }
+.pbn-table .pb-tr { grid-template-columns:2fr 1fr 1fr; }
+.pbn-raport { display:inline-block; border:1.5px solid #111; border-radius:10px; padding:5px 22px; font-size:12px; font-weight:800; background:#fff; } .pbn-raport:hover { background:var(--mint); }
+.pbn-raportwrap { display:grid; grid-template-columns:1.7fr 1fr; gap:22px; }
+.pbn-left { display:flex; flex-direction:column; gap:16px; } .pbn-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.pbn-box { background:#f0f0f0; border-radius:12px; padding:14px 18px; } .pbn-box small { font-size:12px; font-weight:700; display:block; } .pbn-box strong { display:block; text-align:center; font-size:30px; margin-top:4px; }
+.pbn-bars { display:flex; flex-direction:column; gap:10px; } .pbn-b > div:first-child { display:flex; justify-content:space-between; font-size:12px; font-weight:800; margin-bottom:3px; }
+.pbn-detail { display:flex; flex-direction:column; gap:12px; font-size:12px; } .pbn-detail > div { display:flex; justify-content:space-between; gap:8px; } .pbn-detail > b { font-size:13px; }
+.pbn-form { border-top:1px solid #e5e7eb; } .pbn-form h3 { font-size:14px; margin-bottom:12px; } .pbn-form h3 small { font-weight:400; color:#6b7280; font-size:11px; }
+.pbn-inputs { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-bottom:14px; } .pbn-inputs label { margin:0; font-size:12px; }
+@media (max-width:1000px) { .pbn-grid { grid-template-columns:1fr 1fr; } .pbn-raportwrap { grid-template-columns:1fr; } .pbn-inputs { grid-template-columns:1fr 1fr; } }
 
+/* ===== Tautan di dashboard ===== */
+a.pb-item, a.pb-ann { display:flex; color:inherit; } a.pb-ann { flex-direction:column; } a.pb-chip { display:inline-block; color:inherit; }
+a.pb-item:hover b, a.pb-ann:hover b { text-decoration:underline; } a.pb-chip:hover { background:#cfcfcf; }
+.pb-stat a { text-decoration:none; } .pb-stat a:hover { text-decoration:underline; } .pb-stat a.red { color:#e11d1d; }
+.pb-back { font-size:12px; color:#4a5565; align-self:flex-start; }
 
-/* ===== Jadwal Pembimbing ===== */
-.pb-jd { display:grid; grid-template-columns:minmax(0,1.9fr) minmax(280px,1fr); gap:24px; align-items:start; }
-.pb-jd-cal { background:#fff; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden; }
-.pb-jd-head { background:#00381f; color:#fff; padding:18px 22px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
-.pb-jd-head h2 { font-size:16px; font-weight:800; } .pb-jd-head p { font-size:13px; opacity:.85; margin-top:2px; }
-.pb-jd-tools { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-.pb-jd-tools select { height:38px; border:0; border-radius:8px; padding:0 14px; font:inherit; font-size:13px; background:#fff; color:#111; min-width:150px; }
-.pb-jd-add { background:rgba(255,255,255,.14); color:#fff; font-weight:700; font-size:13px; border-radius:8px; padding:10px 18px; white-space:nowrap; }
-.pb-jd-add:hover { background:rgba(255,255,255,.24); }
+/* ===== Detail pendaftaran ===== */
+.pb-namelink:hover { text-decoration:underline; color:#0f5c3a; }
+.pb-dgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.pb-dgrid div, .pb-dtext { background:#e8f3ee; border-radius:8px; padding:10px 12px; }
+.pb-dgrid small, .pb-dtext small { display:block; font-size:10px; color:#6b7280; margin-bottom:2px; } .pb-dgrid b { font-size:13px; word-break:break-word; }
+.pb-dtext { margin-bottom:10px; } .pb-dtext p { font-size:13px; line-height:1.5; }
+.pb-save:disabled { background:#9ca3af; cursor:not-allowed; }
+@media (max-width:700px) { .pb-dgrid { grid-template-columns:1fr 1fr; } }
 
-.pb-jd-body { padding:20px 22px 24px; }
-.pb-jd-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
-.pb-jd-nav h3 { font-size:17px; font-weight:800; }
-.pb-jd-nav div { display:flex; gap:8px; }
-.pb-jd-nav a { border:1px solid #d6dbe0; border-radius:8px; padding:6px 12px; font-size:13px; font-weight:600; background:#fff; }
-.pb-jd-nav a:hover { background:#f0f4f2; }
-
-.pb-jd-grid { display:grid; grid-template-columns:repeat(7,1fr); border:1px solid #e2e8f0; border-radius:10px; overflow:hidden; }
-.pb-jd-dow { background:#e8f3ee; color:#004029; font-size:12px; font-weight:700; text-align:center; padding:9px 0; border-bottom:1px solid #e2e8f0; }
-.pb-jd-cell { min-height:88px; padding:8px 6px; border-right:1px solid #eef1ef; border-bottom:1px solid #eef1ef; display:flex; flex-direction:column; gap:3px; background:#fff; min-width:0; }
-.pb-jd-cell:nth-child(7n) { border-right:0; }
-a.pb-jd-cell:hover { background:#f6faf8; }
-.pb-jd-blank { background:#f6f8fa; }
-.pb-jd-cell.sel { background:#e8f5ee; outline:2px solid #0f4d30; outline-offset:-2px; }
-.pb-jd-num { font-size:12px; font-weight:700; width:22px; height:22px; display:grid; place-items:center; }
-.pb-jd-num.today { background:#0f4d30; color:#fff; border-radius:50%; }
-.pb-jd-chip { display:block; font-style:normal; background:#cfe6dc; color:#0f4d30; font-size:10px; font-weight:700; border-radius:4px; padding:2px 5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.pb-jd-more { font-style:normal; font-size:10px; color:var(--mut); padding-left:4px; }
-
-.pb-jd-side { background:#fff; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden; }
-.pb-jd-day { padding:18px 22px; border-bottom:1px solid #e5e7eb; }
-.pb-jd-day h3 { font-size:15px; font-weight:800; } .pb-jd-day small { font-size:12px; color:var(--mut); }
-.pb-jd-none { padding:24px 22px; text-align:center; color:var(--mut); font-size:13px; }
-.pb-jd-item { display:flex; align-items:center; gap:12px; padding:12px 22px; border-bottom:1px solid #eef1ef; }
-.pb-jd-item > div { flex:1; min-width:0; } .pb-jd-item b { display:block; font-size:13px; } .pb-jd-item small { font-size:11px; color:var(--mut); }
-.pb-jd-time { background:#cfe6dc; color:#0f4d30; font-weight:800; font-size:11px; border-radius:6px; padding:5px 8px; }
-.pb-jd-del { background:none; border:1px solid #fecaca; color:#dc2626; border-radius:6px; font-size:11px; font-weight:700; padding:4px 10px; cursor:pointer; }
-.pb-jd-del:hover { background:#fef2f2; }
-.pb-jd-next { border-top:1px solid #e5e7eb; padding:16px 22px 20px; }
-.pb-jd-next h4 { font-size:11px; letter-spacing:.06em; color:#64748b; margin-bottom:10px; }
-.pb-jd-next div { display:flex; justify-content:space-between; gap:10px; padding:6px 0; font-size:13px; }
-.pb-jd-next em { font-style:normal; color:var(--mut); text-align:right; }
-.pb-jd-next .pb-jd-none { padding:8px 0; text-align:left; }
-
-.pb-fl-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-
-@media (max-width:1000px) {
-    .pb-jd { grid-template-columns:1fr; }
-    .pb-jd-cell { min-height:64px; }
-    .pb-jd-chip { font-size:9px; }
-}
-
-
-/* ===== Absensi Pembimbing ===== */
-.pb-ab-pick { display:flex; gap:14px; flex-wrap:wrap; background:#fff; border-radius:12px; padding:14px 18px; }
-.pb-ab-pick label { display:flex; flex-direction:column; gap:4px; flex:1; min-width:220px; }
-.pb-ab-pick label span { font-size:11px; font-weight:700; letter-spacing:.05em; color:#64748b; text-transform:uppercase; }
-.pb-ab-pick select { height:38px; border:1px solid #d6dbe0; border-radius:8px; padding:0 12px; font:inherit; font-size:13px; background:#fff; }
-
-.pb-ab-table { border:1px solid #9ca3af; border-radius:14px; overflow:hidden; }
-.pb-ab-tr { display:grid; grid-template-columns:2fr 1fr 3.2fr; gap:12px; align-items:center; padding:12px 24px; border-top:1px solid #d6dbe0; font-size:13px; }
-.pb-ab-tr > span:nth-child(2), .pb-ab-tr > span:nth-child(3) { text-align:center; }
-.pb-ab-th { border-top:0; background:#e8f3ee; color:#004029; font-size:12px; font-weight:700; }
-
-.pb-ab-opts { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-.pb-ab-opt { position:relative; display:inline-block; }
-.pb-ab-opt input { position:absolute; opacity:0; pointer-events:none; }
-.pb-ab-opt span { display:inline-block; min-width:72px; text-align:center; border:1.5px solid #111; border-radius:999px; padding:5px 16px; font-size:13px; font-weight:700; background:#fff; cursor:pointer; }
-.pb-ab-opt span:hover { background:#f0f4f2; }
-.pb-ab-opt input:checked + span { background:#0f4d30; border-color:#0f4d30; color:#fff; }
-.pb-ab-opt input:focus-visible + span { outline:2px solid var(--gold); outline-offset:2px; }
-.pb-ab-opt input:disabled + span { opacity:.5; cursor:not-allowed; }
-
-.pb-ab-foot { display:flex; justify-content:flex-end; align-items:center; gap:12px; margin-top:16px; }
-.pb-ab-all { background:#fff; border:1px solid #d6dbe0; border-radius:8px; padding:9px 16px; font-size:13px; font-weight:600; cursor:pointer; }
-.pb-ab-all:hover:not(:disabled) { background:#f0f4f2; }
-.pb-ab-foot button:disabled { opacity:.5; cursor:not-allowed; }
-
-.pb-ab-st { font-style:normal; font-weight:800; font-size:13px; }
-.pb-ab-st-hadir { color:#16a34a; } .pb-ab-st-izin { color:#2563eb; } .pb-ab-st-sakit { color:#d97706; } .pb-ab-st-alpa { color:#dc2626; }
-.pb-ab-st-kosong, .pb-ab-st-belum { color:#9ca3af; font-weight:600; }
-
-@media (max-width:800px) {
-    .pb-ab-tr { grid-template-columns:1fr; gap:6px; padding:12px 16px; }
-    .pb-ab-tr > span:nth-child(2), .pb-ab-tr > span:nth-child(3) { text-align:left; }
-    .pb-ab-opts { justify-content:flex-start; }
-    .pb-ab-th { display:none; }
-}
-
-.pb-jd-acts { display:flex; gap:8px; align-items:center; margin-top:8px; }
-.pb-jd-acts form { margin:0; }
-.pb-jd-abs { font-size:11px; font-weight:700; color:#0f4d30; border:1px solid #b7d8c7; background:#e8f3ee; border-radius:6px; padding:4px 10px; white-space:nowrap; }
-.pb-jd-abs:hover { background:#cfe6dc; }
-/* ===== Pengumuman Pembimbing ===== */
-.pb-pg-head { background:var(--g2); color:#fff; padding:22px 24px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
-.pb-pg-head h2 { font-size:17px; font-weight:800; } .pb-pg-head p { font-size:13px; font-weight:600; margin-top:2px; opacity:.9; }
-.pb-pg-add { background:rgba(255,255,255,.2); color:#fff; font-weight:700; font-size:13px; border-radius:10px; padding:11px 20px; white-space:nowrap; }
-.pb-pg-add:hover { background:rgba(255,255,255,.3); }
-
-.pb-pg-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; padding:22px 24px 28px; }
-.pb-pg-card { position:relative; display:flex; flex-direction:column; gap:6px; border:1px solid #9ca3af; border-radius:14px; padding:16px 18px; background:#fff; transition:background .15s, box-shadow .15s; }
-.pb-pg-card:hover { background:#f6faf8; box-shadow:0 2px 8px rgba(0,0,0,.06); }
-.pb-pg-card h3 { font-size:15px; font-weight:800; padding-right:44px; }
-.pb-pg-prev { font-size:12px; color:#6b7280; line-height:1.45; }
-.pb-pg-card dl { margin-top:6px; display:flex; flex-direction:column; gap:2px; }
-.pb-pg-card dl div { display:flex; gap:6px; font-size:11px; } .pb-pg-card dt { color:#9ca3af; } .pb-pg-card dd { margin:0; font-weight:600; color:#111; }
-.pb-pg-new { position:absolute; top:14px; right:14px; font-style:normal; font-size:10px; font-weight:700; background:#8ed1e8; color:#0b4a63; border-radius:999px; padding:1px 12px; }
-
-.pb-modal--detail { width:min(780px,100%); max-height:92vh; display:flex; flex-direction:column; }
-.pb-pg-mh { background:var(--g2); color:#fff; padding:20px 24px; display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
-.pb-pg-mh h3 { font-size:20px; font-weight:800; margin-top:8px; }
-.pb-pg-chip { display:inline-block; background:#8ed1e8; color:#0b4a63; font-size:11px; font-weight:700; border-radius:999px; padding:3px 14px; }
-.pb-pg-x { width:34px; height:34px; border:1px solid rgba(255,255,255,.7); border-radius:50%; display:grid; place-items:center; color:#fff !important; flex-shrink:0; }
-.pb-pg-x:hover { background:rgba(255,255,255,.15); }
-
-.pb-pg-cols { display:grid; grid-template-columns:1fr 1fr; gap:0; overflow:auto; }
-.pb-pg-left { padding:22px 24px; border-right:1px solid #e5e7eb; display:flex; flex-direction:column; gap:16px; }
-.pb-pg-isi { font-size:13px; line-height:1.6; color:#374151; overflow-wrap:anywhere; }
-.pb-pg-info { background:#f3f6f4; border-radius:10px; padding:14px 16px; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.pb-pg-info small { display:block; font-size:11px; color:#6b7280; } .pb-pg-info b { font-size:12px; }
-.pb-pg-del { align-self:flex-start; background:#fff; border:1px solid #fecaca; color:#dc2626; border-radius:8px; padding:8px 14px; font-size:12px; font-weight:700; cursor:pointer; }
-.pb-pg-del:hover { background:#fef2f2; }
-
-.pb-pg-right { padding:22px 24px; display:flex; flex-direction:column; gap:12px; min-width:0; }
-.pb-pg-ch { display:flex; justify-content:space-between; align-items:center; }
-.pb-pg-ch h4 { font-size:15px; } .pb-pg-ch span { background:#e3f1ea; color:#0f4d30; font-size:11px; font-weight:600; border-radius:999px; padding:3px 12px; }
-.pb-pg-list { display:flex; flex-direction:column; gap:10px; max-height:240px; overflow:auto; }
-.pb-pg-c { background:#f6f8f7; border-radius:8px; padding:10px 14px; }
-.pb-pg-c.me { background:#e8f3ee; }
-.pb-pg-c > div { display:flex; justify-content:space-between; gap:8px; } .pb-pg-c b { font-size:12px; } .pb-pg-c small { font-size:10px; color:#9ca3af; white-space:nowrap; }
-.pb-pg-c p { font-size:12px; margin-top:3px; overflow-wrap:anywhere; }
-.pb-pg-none { font-size:12px; color:var(--mut); }
-.pb-pg-form { display:flex; flex-direction:column; gap:8px; margin-top:4px; }
-.pb-pg-form label { font-size:12px; font-weight:700; }
-.pb-pg-form textarea { width:100%; border:1px solid #cbd5e1; border-radius:8px; padding:10px 12px; font:inherit; font-size:12px; resize:vertical; }
-.pb-pg-form textarea:focus { outline:none; border-color:#0f4d30; }
-.pb-pg-form .pb-save { align-self:flex-end; }
-
-@media (max-width:800px) {
-    .pb-pg-cols { grid-template-columns:1fr; }
-    .pb-pg-left { border-right:0; border-bottom:1px solid #e5e7eb; }
-}
-/* ===== Indeks Penilaian Pembimbing ===== */
-.pb-pn-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:18px; }
-.pb-pn-card { border:1px solid #9ca3af; border-radius:14px; padding:16px 18px; display:flex; flex-direction:column; gap:6px; background:#fff; }
-.pb-pn-card h3 { font-size:15px; font-weight:800; }
-.pb-pn-desc { font-size:11px; color:#6b7280; line-height:1.45; min-height:48px; }
-.pb-pn-by { font-size:11px; margin-top:6px; } .pb-pn-by span { color:#9ca3af; } .pb-pn-by b { font-weight:600; }
-.pb-pn-quota { display:flex; justify-content:space-between; font-size:11px; margin-top:4px; } .pb-pn-quota span { color:#9ca3af; } .pb-pn-quota b { font-weight:700; }
-.pb-pn-bar { height:4px; background:#e5e7eb; border-radius:999px; overflow:hidden; } .pb-pn-bar i { display:block; height:100%; background:#2f7d3b; }
-.pb-pn-pill { align-self:flex-start; margin-top:6px; background:#d4d4d4; border-radius:999px; padding:2px 16px; font-size:11px; font-weight:600; }
-.pb-pn-pill:hover { background:var(--mint); }
-
-.pb-pn-sub { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; font-size:13px; flex-wrap:wrap; gap:8px; }
-.pb-pn-sub span { font-size:11px; color:#9ca3af; } .pb-pn-sub span b { color:#111; font-weight:600; }
-.pb-pn-table { border:1px solid #9ca3af; border-radius:14px; overflow:hidden; }
-.pb-pn-tr { display:grid; grid-template-columns:2fr 1.2fr 1fr; gap:12px; align-items:center; padding:12px 28px; border-top:1px solid #d6dbe0; font-size:13px; }
-.pb-pn-tr > span:nth-child(2) { text-align:center; } .pb-pn-tr > span:nth-child(3) { text-align:right; }
-.pb-pn-th { border-top:0; background:#e8f3ee; color:#004029; font-size:12px; font-weight:700; }
-.pb-pn-raport { display:inline-block; border:1.5px solid #111; border-radius:12px; padding:5px 18px; font-size:12px; font-weight:700; color:#555; background:#fff; }
-.pb-pn-raport:hover { background:#e8f3ee; color:#004029; border-color:#0f4d30; }
-
-.pb-pn-rhead { background:var(--g2); color:#fff; padding:22px 24px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
-.pb-pn-rhead h2 { font-size:17px; font-weight:800; } .pb-pn-rhead p { font-size:13px; font-weight:600; margin-top:2px; opacity:.9; }
-.pb-pn-edit { background:rgba(255,255,255,.2); color:#fff; font-weight:700; font-size:13px; border-radius:10px; padding:10px 18px; white-space:nowrap; }
-.pb-pn-edit:hover { background:rgba(255,255,255,.3); }
-
-.pb-pn-raport-grid { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(240px,1fr); gap:24px; align-items:start; padding:6px 4%; }
-.pb-pn-left { display:flex; flex-direction:column; gap:18px; }
-.pb-pn-stats { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-.pb-pn-stat { background:#f1f1f1; border-radius:12px; padding:16px 20px; display:flex; flex-direction:column; align-items:center; gap:2px; }
-.pb-pn-stat small { align-self:flex-start; font-size:12px; font-weight:700; }
-.pb-pn-stat strong { font-size:34px; font-weight:800; margin-top:6px; } .pb-pn-stat em { font-style:normal; font-size:11px; color:#6b7280; }
-.pb-pn-bars { background:#f1f1f1; border-radius:12px; padding:16px 20px; display:flex; flex-direction:column; gap:12px; }
-.pb-pn-b > div { display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:4px; }
-.pb-pn-b i { display:block; height:5px; background:#fff; border-radius:999px; overflow:hidden; } .pb-pn-b u { display:block; height:100%; background:#1f7a2e; border-radius:999px; text-decoration:none; }
-.pb-pn-sem { font-size:11px; color:#6b7280; }
-.pb-pn-detail { background:#f1f1f1; border-radius:12px; padding:18px 20px; }
-.pb-pn-detail h3 { font-size:14px; font-weight:800; margin-bottom:12px; }
-.pb-pn-d { display:flex; justify-content:space-between; gap:10px; padding:8px 0; font-size:12px; border-top:1px solid #e0e0e0; }
-.pb-pn-d:first-of-type { border-top:0; } .pb-pn-d span { overflow-wrap:anywhere; } .pb-pn-d b { white-space:nowrap; }
-.pb-pn-none { font-size:12px; color:var(--mut); }
-
-.pb-modal--nilai { width:min(640px,100%); max-height:92vh; overflow:auto; }
-.pb-pn-fgrid { display:grid; grid-template-columns:1fr 2fr; gap:0 14px; }
-
-@media (max-width:900px) {
-    .pb-pn-raport-grid { grid-template-columns:1fr; padding:0; }
-    .pb-pn-stats { grid-template-columns:1fr 1fr; }
-    .pb-pn-tr { padding:12px 16px; }
-    .pb-pn-fgrid { grid-template-columns:1fr; }
-}
+/* ===== Tombol aksi tabel (Detail / Terima / Tolak / Kelola) ===== */
+.pb-tr { grid-template-columns:1.5fr .8fr 1.5fr 1.1fr .9fr 210px; }
+.pb-table--aktif .pb-tr { grid-template-columns:1.6fr 1fr 1.6fr 1fr 1fr; }
+.pb-act { display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; gap:6px; }
+.pb-act form { display:inline-flex; margin:0; }
+.pb-mini { display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; height:28px; min-width:60px; padding:0 12px;
+           border:1px solid #111; border-radius:999px; background:#fff; color:#111;
+           font:600 11px/1 'Nunito Sans',system-ui,sans-serif; white-space:nowrap; cursor:pointer; text-decoration:none; }
+.pb-mini:hover { background:#f0f4f2; }
+.pb-mini--on { background:#0a5a3c; border-color:#0a5a3c; color:#fff; } .pb-mini--on:hover { background:#084a32; }
+@media (max-width:1000px) { .pb-tr, .pb-table--aktif .pb-tr { grid-template-columns:1fr 1fr; } .pb-act { justify-content:flex-start; flex-wrap:wrap; } }

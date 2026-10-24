@@ -26,7 +26,7 @@ img { max-width: 100%; display: block; }
 .nav a { opacity: .9; } .nav a:hover { opacity: 1; color: var(--lime); }
 
 /* ===== Hero ===== */
-.hero { position: relative; min-height: 640px; padding: 90px 120px; background: var(--green) url('../img/lambang.png') no-repeat -120px 20px / 880px; overflow: hidden; }
+.hero { position: relative; min-height: 640px; padding: 90px 120px; background: url('../img/lambang.png') no-repeat -120px 20px / 880px, url('../img/hero_pola.jpg') center / cover no-repeat var(--green); overflow: hidden; }
 .hero::before { content: ''; position: absolute; inset: 0; background: rgba(0, 64, 41, .72); }
 .hero > * { position: relative; }
 .hero .welcome { font-family: 'Condiment', cursive; font-size: 28px; }
@@ -49,32 +49,33 @@ section.block { padding: 72px 120px; }
 .divider { height: 4px; background: #fff; margin: 0 40px; }
 
 /* Pendiri */
-.founders { display: grid; gap: 28px; max-width: 760px; margin: 0 auto; }
-.founder { display: flex; gap: 28px; align-items: center; }
-.founder .photo { flex: 0 0 76px; height: 76px; border-radius: 12px; background: #1c5a40; border: 2px solid var(--gold); }
-.founder h3 { font-size: 13px; } .founder small { display: block; font-size: 12px; }
+.founders { display: grid; gap: 27px; max-width: 990px; margin: 0 auto; }
+.founder { display: flex; gap: 48px; align-items: center; }
+.founder .photo { flex: 0 0 104px; height: 146px; border-radius: 34px; background: #1c5a40 center top / cover no-repeat; }
+.founder > div:last-child { font-family: 'Baloo Bhaina 2', 'Inter', sans-serif; font-size: 14px; line-height: normal; }
+.founder h3, .founder b, .founder small { display: block; font-family: inherit; font-size: 14px; font-weight: 400; line-height: normal; }
 
 /* Visi misi */
 .vm h3 { text-align: center; font-size: 16px; margin: 12px 0 6px; }
 .vm ol { max-width: 760px; margin: 0 auto; font-size: 13px; padding-left: 20px; }
 
 /* Prestasi */
-.awards { max-width: 760px; margin: 0 auto; display: grid; gap: 24px; }
-.award { display: flex; gap: 24px; align-items: center; font-size: 13px; }
-.award .thumb { flex: 0 0 130px; height: 84px; border-radius: 8px; background: #1c5a40; }
+.awards { max-width: 900px; margin: 0 auto; display: grid; gap: 24px; }
+.award { display: flex; gap: 72px; align-items: center; font-size: 13px; }
+.award .thumb { flex: 0 0 158px; height: 95px; border-radius: 34px; background: #1c5a40 center / cover no-repeat; }
 .award b { display: block; }
 
 /* Statistik */
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 24px; padding: 56px 80px; }
-.stats span { display: block; font-size: 18px; }
-.stats strong { display: block; font-family: 'Concert One', sans-serif; font-size: 26px; color: var(--lime); font-weight: 400; margin-top: 6px; }
+.home-stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 24px; padding: 56px 80px; }
+.home-stats span { display: block; font-size: 18px; }
+.home-stats strong { display: block; font-family: 'Concert One', sans-serif; font-size: 26px; color: var(--lime); font-weight: 400; margin-top: 6px; }
 
 /* Ekskul */
 .ekskul { background: #003322; }
 .ekskul h2 { font-family: 'Condiment', cursive; font-size: 28px; text-align: left; font-weight: 400; }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 48px; max-width: 1200px; margin: 0 auto; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 87px; max-width: 1180px; margin: 0 auto; }
 .card { text-align: center; }
-.card .pic { height: 160px; border-radius: 10px; background: #1c5a40 center / cover; margin-bottom: 12px; }
+.card .pic { aspect-ratio: 339 / 221; border-radius: 34px; background: #1c5a40 center / cover no-repeat; margin-bottom: 12px; }
 .card h3 { font-size: 16px; } .card p { font-size: 11px; text-align: center; margin-top: 4px; }
 
 /* Peran + footer */
@@ -87,10 +88,10 @@ footer h4 { font-size: 12px; margin-bottom: 6px; }
 footer li { list-style: none; }
 
 /* ===== Login ===== */
-.login-page { min-height: 100vh; background: var(--green) url('../img/lambang.png') no-repeat -175px 45px / 1048px; }
+.login-page { min-height: 100vh; background: var(--green) url('../img/lambang_pudar.png') no-repeat -175px 45px / 1048px; }
 .topbar--login { border-bottom-width: 20px; }
-.login-wrap { display: grid; grid-template-columns: 1fr 520px; gap: 32px; align-items: center; min-height: calc(100vh - 96px); padding: 0 96px 40px 0; }
-.login-hero { padding-left: 40px; }
+.login-wrap { display: grid; grid-template-columns: 1fr 520px; gap: 32px; align-items: start; min-height: calc(100vh - 96px); padding: clamp(40px, 12vh, 150px) 96px 56px 0; }
+.login-hero { padding-left: 40px; padding-top: 24px; }
 .login-hero .t-script--2 { padding-left: 24px; }
 .login-card { width: 448px; max-width: 100%; margin-left: auto; background: #fff; color: var(--gray-700); border-radius: 16px; padding: 32px; box-shadow: 0 20px 12px rgba(0,0,0,.1), 0 8px 5px rgba(0,0,0,.1); }
 .login-card h2 { color: var(--green); font-size: 24px; line-height: 32px; font-weight: 700; }
@@ -126,7 +127,7 @@ footer li { list-style: none; }
     .logo-badge { left: 24px; } .nav { display: none; }
     .hero, section.block, footer { padding-left: 24px; padding-right: 24px; }
     .hero-actions { padding-left: 0; flex-wrap: wrap; } .t-script--2 { padding-left: 0; }
-    .cards, .stats, footer { grid-template-columns: 1fr; }
-    .login-wrap { grid-template-columns: 1fr; padding: 24px; }
+    .cards, .home-stats, footer { grid-template-columns: 1fr; }
+    .login-wrap { grid-template-columns: 1fr; padding: 24px; align-items: start; }
     .login-hero { padding: 0; } .login-card, .legal { margin: 0 auto; }
 }

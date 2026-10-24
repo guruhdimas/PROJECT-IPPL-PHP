@@ -214,15 +214,6 @@ if ($flash): ?>
                 <div>
                     <b><?= e($s['kegiatan']) ?></b>
                     <small><?= e($s['nama']) ?> · <?= e($s['lokasi']) ?></small>
-                <div class="pb-jd-acts">
-                        <a class="pb-jd-abs" href="<?= e('kelola_absensi.php?' . http_build_query(['tab' => 'input', 'e' => $s['ekskul_id'], 'p' => $s['id']])) ?>">Isi presensi</a>
-                        <form method="post" action="<?= e(jd_url($state)) ?>" onsubmit="return confirm('Hapus jadwal ini?')">
-                    <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
-                    <input type="hidden" name="aksi" value="hapus">
-                    <input type="hidden" name="id" value="<?= (int) $s['id'] ?>">
-                    <button type="submit" class="pb-jd-del" aria-label="Hapus jadwal">Hapus</button>
-                </form>
-                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

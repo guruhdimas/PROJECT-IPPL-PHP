@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 24, 2026 at 02:13 AM
+-- Generation Time: Oct 24, 2026 at 04:58 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.33
 
@@ -107,7 +107,11 @@ INSERT INTO `ekskul_absensi` (`id`, `pertemuan_id`, `siswa_id`, `status`, `creat
 (21, 3, 10, 'izin', '2026-10-24 01:23:23'),
 (22, 3, 11, 'hadir', '2026-10-24 01:23:23'),
 (23, 3, 12, 'hadir', '2026-10-24 01:23:23'),
-(24, 3, 13, 'hadir', '2026-10-24 01:23:23');
+(24, 3, 13, 'hadir', '2026-10-24 01:23:23'),
+(48, 5, 1, 'hadir', '2026-10-24 16:54:12'),
+(49, 5, 6, 'hadir', '2026-10-24 16:54:12'),
+(50, 5, 7, 'sakit', '2026-10-24 16:54:12'),
+(51, 5, 8, 'sakit', '2026-10-24 16:54:12');
 
 -- --------------------------------------------------------
 
@@ -131,12 +135,11 @@ CREATE TABLE `ekskul_nilai` (
 --
 
 INSERT INTO `ekskul_nilai` (`id`, `siswa_id`, `aspek`, `nilai`, `catatan`, `semester`, `urutan`, `created_at`) VALUES
-(1, 1, 'Kemandirian', 90, 'Sangat aktif dan mandiri dalam kegiatan', 'Ganjil 2026', 1, '2026-10-23 15:54:18'),
-(2, 1, 'Kerjasama', 81, 'Mampu bekerja tim dengan baik', 'Ganjil 2026', 2, '2026-10-23 15:54:18'),
-(3, 1, 'Kedisiplinan', 75, 'Perlu meningkatkan ketepatan waktu', 'Ganjil 2026', 3, '2026-10-23 15:54:18'),
-(4, 1, 'Kreativitas', 88, 'Ide-ide segar dan inovatif', 'Ganjil 2026', 4, '2026-10-23 15:54:18'),
-(5, 1, 'Kepemimpinan', 70, 'Perlu meningkatkan kemampuan memimpin kelompok', 'Ganjil 2026', 5, '2026-10-23 15:54:18'),
-(6, 1, 'Kehadiran', 70, 'Perlu meningkatkan kehadiran', 'Ganjil 2026', 6, '2026-10-23 15:54:18');
+(8, 1, 'Kemandirian', 100, 'Sangat aktif dan mandiri dalam kegiatan', 'Ganjil 2026', 1, '2026-10-24 23:57:04'),
+(9, 1, 'Kerjasama', 100, 'Mampu bekerja tim dengan baik', 'Ganjil 2026', 2, '2026-10-24 23:57:04'),
+(10, 1, 'Kedisiplinan', 100, 'Perlu meningkatkan ketepatan waktu', 'Ganjil 2026', 3, '2026-10-24 23:57:04'),
+(11, 1, 'Kreativitas', 100, 'Sangat pintar kali', 'Ganjil 2026', 4, '2026-10-24 23:57:04'),
+(12, 1, 'Kepemimpinan', 100, 'Perlu meningkatkan kemampuan memimpin kelompok', 'Ganjil 2026', 5, '2026-10-24 23:57:04');
 
 -- --------------------------------------------------------
 
@@ -183,7 +186,9 @@ CREATE TABLE `ekskul_pertemuan` (
 INSERT INTO `ekskul_pertemuan` (`id`, `ekskul_id`, `tanggal`, `jam`, `kegiatan`, `lokasi`, `created_at`) VALUES
 (1, 1, '2026-10-23', '02:27:00', 'yyyyy', 'YYYYY', '2026-10-23 19:27:05'),
 (2, 2, '2026-10-24', '08:22:00', 'ggggggggggg', 'gggggggggggggg', '2026-10-24 01:21:32'),
-(3, 2, '2026-10-24', '10:22:00', 'dfdfdfdfd', 'dfvdfdfdfdf', '2026-10-24 01:22:19');
+(3, 2, '2026-10-24', '10:22:00', 'dfdfdfdfd', 'dfvdfdfdfdf', '2026-10-24 01:22:19'),
+(4, 4, '2026-10-25', '15:47:00', 'GATAU', 'ENGLISH', '2026-10-24 08:47:48'),
+(5, 4, '2026-10-24', '01:55:00', 't', 'test', '2026-10-24 16:53:13');
 
 -- --------------------------------------------------------
 
@@ -207,7 +212,8 @@ INSERT INTO `ekskul_tugas` (`id`, `ekskul_id`, `judul`, `keterangan`, `deadline`
 (1, 1, 'Tugas Konektivitas & IoT Clouds', 'Kumpulkan laporan dalam bentuk pdf', '2026-11-06'),
 (2, 1, 'Tuning Algoritma Kontrol PID', 'Kumpulkan laporan dalam bentuk pdf', '2026-12-02'),
 (3, 1, 'Mini-Project ROS & Visi Komputer', 'Kumpulkan laporan dalam bentuk pdf', '2026-09-23'),
-(4, 2, 'pfgdfgdg', 'pfdgfdgdfgfdgfdgfd', '2026-10-31');
+(4, 2, 'pfgdfgdg', 'pfdgfdgdfgfdgfdgfd', '2026-10-31'),
+(5, 2, 'Pemrograman Web', 'Live Coding', '2026-10-25');
 
 -- --------------------------------------------------------
 
@@ -233,7 +239,8 @@ INSERT INTO `info_komentar` (`id`, `pengumuman_id`, `user_id`, `nama`, `peran`, 
 (1, 1, 1, 'Budi Setiawan', 'siswa', 'Siap, akan hadir!', '2026-10-23 14:41:36'),
 (2, 1, NULL, 'Rina Kusuma', 'siswa', 'baik pak!', '2026-10-23 14:56:36'),
 (3, 1, 1, 'Budi Setiawan', 'siswa', 'j', '2026-10-23 15:42:43'),
-(4, 1, 1, 'Budi Setiawan 1', 'siswa', 'y', '2026-10-24 01:39:39');
+(4, 1, 1, 'Budi Setiawan 1', 'siswa', 'y', '2026-10-24 01:39:39'),
+(5, 1, 1, 'Budi Setiawan 1', 'siswa', 'TEST KOMEN', '2026-10-24 15:45:23');
 
 -- --------------------------------------------------------
 
@@ -299,7 +306,7 @@ CREATE TABLE `pembimbing_profil` (
 --
 
 INSERT INTO `pembimbing_profil` (`user_id`, `foto`, `updated_at`) VALUES
-(2, 'uploads/profil/pb2_a40ec3925bb2.jpg', '2026-10-24 01:56:35');
+(2, 'uploads/profil/pb2_d24c95151794.jpg', '2026-10-24 16:02:11');
 
 -- --------------------------------------------------------
 
@@ -371,9 +378,11 @@ INSERT INTO `pendaftaran` (`id`, `siswa_id`, `ekskul_id`, `nis`, `hp_siswa`, `na
 (54, 1, 2, '202210045', '081200000000', 'Orang Tua', '081200000001', 'Data demo', NULL, 'disetujui', '2026-10-23 15:03:27', '2026-10-23 15:03:27'),
 (56, 1, 3, '202210045', '08121234567', 'dfdfdfdf', '0812876543', 'dfsgfgdfgfdg', NULL, 'disetujui', '2026-10-23 15:05:44', '2026-10-24 08:58:32'),
 (59, 39, 1, '202110072', '081200000000', 'Orang Tua', '081200000001', 'Ingin belajar dan berprestasi', NULL, 'menunggu', '2026-10-10 08:00:00', NULL),
-(60, 38, 1, '202110071', '081200000000', 'Orang Tua', '081200000001', 'Ingin belajar dan berprestasi', NULL, 'menunggu', '2026-10-10 08:00:00', NULL),
+(60, 38, 1, '202110071', '081200000000', 'Orang Tua', '081200000001', 'Ingin belajar dan berprestasi', NULL, 'ditolak', '2026-10-10 08:00:00', '2026-10-24 23:54:42'),
 (61, 40, 1, '202210073', '081200000000', 'Orang Tua', '081200000001', 'Ingin belajar dan berprestasi', NULL, 'menunggu', '2026-10-10 08:00:00', NULL),
-(62, 41, 3, '202110074', '081200000000', 'Orang Tua', '081200000001', 'Tertarik keamanan digital', NULL, 'menunggu', '2026-10-11 09:00:00', NULL);
+(62, 41, 3, '202110074', '081200000000', 'Orang Tua', '081200000001', 'Tertarik keamanan digital', NULL, 'menunggu', '2026-10-11 09:00:00', NULL),
+(63, 1, 4, '202210045', '08121234567', 'GURUH DIMAS NURDOYO', '0812876543', 'GATAUUU', NULL, 'disetujui', '2026-10-24 15:42:09', '2026-10-24 15:44:11'),
+(65, 38, 3, '202110071', '08121234567', 'Mulyono Ganteng', '0812876543', 'Ingin menjadi koruptor', NULL, 'disetujui', '2026-10-24 23:24:23', '2026-10-24 23:56:17');
 
 -- --------------------------------------------------------
 
@@ -400,7 +409,7 @@ CREATE TABLE `pengumpulan` (
 
 INSERT INTO `pengumpulan` (`id`, `tugas_id`, `siswa_id`, `nama_file`, `path_file`, `status`, `uploaded_at`, `nilai`, `pesan`, `dinilai_at`) VALUES
 (1, 3, 1, 'laporan-ros.pdf', 'uploads/tugas/demo/laporan-ros.pdf', 'selesai', '2026-10-23 15:08:30', NULL, NULL, NULL),
-(2, 1, 1, 'laporan-iot.pdf', 'uploads/tugas/demo/laporan-iot.pdf', 'dikirim', '2026-10-23 15:08:30', NULL, NULL, NULL);
+(2, 1, 1, 'laporan-iot.pdf', 'uploads/tugas/demo/laporan-iot.pdf', 'selesai', '2026-10-23 15:08:30', 'A+', '', '2026-10-24 15:48:49');
 
 -- --------------------------------------------------------
 
@@ -414,17 +423,18 @@ CREATE TABLE `pengumuman` (
   `judul` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `label` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `isi` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `penulis_id` int UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pengumuman`
 --
 
-INSERT INTO `pengumuman` (`id`, `penulis`, `judul`, `label`, `isi`, `created_at`) VALUES
-(1, 'Abdul Husein, S.T', 'Jadwal Latihan Pekan Ini', 'Robotic', 'Latihan Project Robotic akan dilaksanakan  08.00 – 11.00 di Lab.', '2026-10-23 12:46:47'),
-(2, 'Abdul Husein, S.T', 'Tugas Konektivitas & IoT Cloud', 'Robotic', 'Deadline Hari Rabu Tanggal 21 Mei.', '2026-10-23 09:46:47'),
-(3, 'Lukman Hakim, S.Pd', 'Perubahan Jadwal Latihan Bola', 'Basket', 'Latihan hari sabtu ini ditunda.', '2026-10-22 08:46:47');
+INSERT INTO `pengumuman` (`id`, `penulis`, `judul`, `label`, `isi`, `created_at`, `penulis_id`) VALUES
+(1, 'Abdul Husein, S.T', 'Jadwal Latihan Pekan Ini', 'Robotic', 'Latihan Project Robotic akan dilaksanakan  08.00 – 11.00 di Lab.', '2026-10-23 12:46:47', 2),
+(2, 'Abdul Husein, S.T', 'Tugas Konektivitas & IoT Cloud', 'Robotic', 'Deadline Hari Rabu Tanggal 21 Mei.', '2026-10-23 09:46:47', 2),
+(3, 'Lukman Hakim, S.Pd', 'Perubahan Jadwal Latihan Bola', 'Basket', 'Latihan hari sabtu ini ditunda.', '2026-10-22 08:46:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -499,6 +509,20 @@ INSERT INTO `pertemuan` (`id`, `ekskul_id`, `judul`, `tanggal`, `jam`, `lokasi`)
 (1, 1, 'Pertemuan 6: Kinematika Robotika Dasar (Forward Kinematics)', '2026-10-09', '08:00:00', 'Lab AI'),
 (2, 1, 'Pertemuan 7: Kinematika Invers (Inverse Kinematics)', '2026-10-16', '08:00:00', 'Lab AI'),
 (3, 1, 'Jadwal Latihan Pekan Ini', '2026-10-26', '08:00:00', 'Lab AI');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `presensi`
+--
+
+CREATE TABLE `presensi` (
+  `id` int UNSIGNED NOT NULL,
+  `pertemuan_id` int UNSIGNED NOT NULL,
+  `siswa_id` int UNSIGNED NOT NULL,
+  `status` enum('hadir','izin','sakit','alpa') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -598,10 +622,11 @@ INSERT INTO `users` (`id`, `username`, `password`, `nama`, `role`, `nis`, `angka
 (29, 'contoh24', '!', 'Siswa Contoh 24', 'siswa', '20240024', '2024', 'X IPA 1', '2026-10-23 07:56:32'),
 (30, 'contoh25', '!', 'Siswa Contoh 25', 'siswa', '20240025', '2024', 'X IPA 1', '2026-10-23 07:56:32'),
 (37, 'rina', '!', 'Rina Kusuma', 'siswa', '202210060', '2025', 'XI IPA 2', '2026-10-23 18:50:57'),
-(38, 'dimas', '!', 'Dimas Saputra', 'siswa', '202110071', '2024', 'XII IPA 2', '2026-10-23 19:00:25'),
+(38, 'dimas', '$2y$10$Zmvp3PvjzxcWSu.YgewLjutJSV..6bnZBETixA8h29bk0hxtV.mOy', 'Dimas Saputra', 'siswa', '202110071', '2024', 'XII IPA 2', '2026-10-23 19:00:25'),
 (39, 'agus', '!', 'Agus Santoso', 'siswa', '202110072', '2024', 'XII IPA 1', '2026-10-23 19:00:25'),
 (40, 'rahayu', '!', 'Rahayu Dwi Kartika', 'siswa', '202210073', '2025', 'XI IPS 1', '2026-10-23 19:00:25'),
-(41, 'randi', '!', 'Randi Darmawan', 'siswa', '202110074', '2024', 'XII IPA 2', '2026-10-23 19:00:25');
+(41, 'randi', '!', 'Randi Darmawan', 'siswa', '202110074', '2024', 'XII IPA 2', '2026-10-23 19:00:25'),
+(42, 'triyanda', '$2y$10$qBEm9s0Dwe00LvqJYjw7RegcRgvXIYhZCRkhQhcTvy.sgtfiPJpRK', 'Triyanda', 'siswa', '202210050', '2025', 'Kelas XI IPA 2', '2026-10-24 16:13:58');
 
 --
 -- Indexes for dumped tables
@@ -731,6 +756,14 @@ ALTER TABLE `pertemuan`
   ADD KEY `ekskul_id` (`ekskul_id`);
 
 --
+-- Indexes for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_presensi` (`pertemuan_id`,`siswa_id`),
+  ADD KEY `siswa_id` (`siswa_id`);
+
+--
 -- Indexes for table `siswa_profil`
 --
 ALTER TABLE `siswa_profil`
@@ -770,13 +803,13 @@ ALTER TABLE `ekskul`
 -- AUTO_INCREMENT for table `ekskul_absensi`
 --
 ALTER TABLE `ekskul_absensi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `ekskul_nilai`
 --
 ALTER TABLE `ekskul_nilai`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `ekskul_pengumuman`
@@ -788,19 +821,19 @@ ALTER TABLE `ekskul_pengumuman`
 -- AUTO_INCREMENT for table `ekskul_pertemuan`
 --
 ALTER TABLE `ekskul_pertemuan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ekskul_tugas`
 --
 ALTER TABLE `ekskul_tugas`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `info_komentar`
 --
 ALTER TABLE `info_komentar`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `info_pengumuman`
@@ -818,7 +851,7 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `pengumpulan`
@@ -851,6 +884,12 @@ ALTER TABLE `pertemuan`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `presensi`
+--
+ALTER TABLE `presensi`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tugas`
 --
 ALTER TABLE `tugas`
@@ -860,7 +899,7 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Constraints for dumped tables
@@ -916,6 +955,13 @@ ALTER TABLE `penilaian`
 --
 ALTER TABLE `pertemuan`
   ADD CONSTRAINT `pertemuan_ibfk_1` FOREIGN KEY (`ekskul_id`) REFERENCES `ekskul` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD CONSTRAINT `presensi_ibfk_1` FOREIGN KEY (`pertemuan_id`) REFERENCES `pertemuan` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `presensi_ibfk_2` FOREIGN KEY (`siswa_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tugas`

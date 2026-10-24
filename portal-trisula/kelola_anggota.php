@@ -186,7 +186,7 @@ else:
             $hadir = 0; $total = 0; $tugas = 0;
             try {
                 $s2 = $pdo->prepare("SELECT COUNT(*) AS total, COALESCE(SUM(a.status = 'hadir'), 0) AS hadir
-                                     FROM pertemuan m LEFT JOIN ekskul_absensi a ON a.pertemuan_id = m.id AND a.siswa_id = ?
+                                     FROM pertemuan m LEFT JOIN presensi a ON a.pertemuan_id = m.id AND a.siswa_id = ?
                                      WHERE m.ekskul_id = ? AND m.tanggal <= ?");
                 $s2->execute([$profil['siswa_id'], $eid, date('Y-m-d')]);
                 $r = $s2->fetch();
@@ -200,6 +200,16 @@ else:
         }
     }
     $base = ['ekskul' => $eid, 'tab' => $tab, 'q' => $q, 'kelas' => $kelas, 'status' => $tab === 'verifikasi' && $status !== 'menunggu' ? $status : ''];
+
+    // Detail isi formulir pendaftaran (modal)
+    $detail = null;
+    $detailId = (int) ($_GET['detail'] ?? 0);
+    if ($detailId) {
+        $st = $pdo->prepare('SELECT p.id, p.status, p.nis, p.hp_siswa, p.nama_ortu, p.hp_ortu, p.alasan, p.pengalaman, p.created_at, u.nama, u.kelas
+                             FROM pendaftaran p JOIN users u ON u.id = p.siswa_id WHERE p.id = ? AND p.ekskul_id = ?');
+        $st->execute([$detailId, $eid]);
+        $detail = $st->fetch() ?: null;
+    }
 ?>
 <a href="kelola_anggota.php" class="pb-back">‹ Pilih ekskul lain</a>
 
@@ -253,7 +263,7 @@ else:
             </div>
             <?php foreach ($baris as $r): ?>
                 <div class="pb-tr">
-                    <span class="pb-nm"><?= e($r['nama']) ?></span>
+                    <span class="pb-nm"><a class="pb-namelink" href="<?= e(kurl($base + ['detail' => $r['id']])) ?>"><?= e($r['nama']) ?></a></span>
                     <span class="pb-mut"><?= e(kelas_label($r['kelas'])) ?></span>
                     <span class="pb-mut"><?= e($ekskul['nama']) ?></span>
                     <?php if ($tab === 'verifikasi'): ?><span class="pb-red"><?= e(tanggal_id(substr($r['created_at'], 0, 10))) ?></span><?php endif; ?>
@@ -265,7 +275,10 @@ else:
                     <span class="pb-act">
                         <?php if ($tab === 'aktif'): ?>
                             <a class="pb-mini" href="<?= e(kurl($base + ['profil' => $r['id']])) ?>">Kelola</a>
-                        <?php elseif ($r['status'] === 'menunggu'): ?>
+                        <?php else: ?>
+                            <a class="pb-mini" href="<?= e(kurl($base + ['detail' => $r['id']])) ?>">Detail</a>
+                        <?php endif; ?>
+                        <?php if ($tab === 'verifikasi' && $r['status'] === 'menunggu'): ?>
                             <?php foreach ([['terima', 'Terima', 'pb-mini pb-mini--on', ''], ['tolak', 'Tolak', 'pb-mini', "Tolak pendaftaran {$r['nama']}?"]] as [$a, $lbl, $cls, $cf]): ?>
                                 <form method="post">
                                     <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
@@ -286,6 +299,48 @@ else:
         </div>
     </div>
 </section>
+
+<?php if ($detail):
+    $tutupD = e(kurl(['ekskul' => $eid, 'tab' => $tab, 'q' => $q, 'kelas' => $kelas, 'status' => $base['status']]));
+    $bisaTerima = $terisi < $kuota;
+?>
+    <div class="pb-modal-back">
+        <div class="pb-modal pb-modal-wide" role="dialog" aria-modal="true" aria-label="Detail Pendaftaran">
+            <header><h3>Detail Pendaftaran</h3><a href="<?= $tutupD ?>" aria-label="Tutup">✕</a></header>
+            <div class="pb-modal-body">
+                <div class="pb-mhead">
+                    <span class="pb-mav"><?= e(initials($detail['nama'])) ?></span>
+                    <div><b><?= e($detail['nama']) ?></b><small><?= e(kelas_label($detail['kelas'])) ?> · <?= e($ekskul['nama']) ?></small></div>
+                </div>
+                <div class="pb-dgrid">
+                    <div><small>Tanggal Daftar</small><b><?= e(tanggal_id(substr($detail['created_at'], 0, 10))) ?></b></div>
+                    <div><small>NIS</small><b><?= e($detail['nis']) ?></b></div>
+                    <div><small>No. HP Siswa</small><b><?= e($detail['hp_siswa']) ?></b></div>
+                    <div><small>Orang Tua/Wali</small><b><?= e($detail['nama_ortu']) ?></b></div>
+                    <div><small>No. HP Orang Tua/Wali</small><b><?= e($detail['hp_ortu']) ?></b></div>
+                    <div><small>Status</small><b><?= e(ucfirst($detail['status'])) ?></b></div>
+                </div>
+                <div class="pb-dtext"><small>Alasan bergabung</small><p><?= nl2br(e($detail['alasan'])) ?></p></div>
+                <div class="pb-dtext"><small>Pengalaman terkait</small><p><?= $detail['pengalaman'] ? nl2br(e($detail['pengalaman'])) : '–' ?></p></div>
+            </div>
+            <footer>
+                <?php if ($detail['status'] === 'menunggu'): ?>
+                    <?php foreach ([['tolak', 'Tolak', 'pb-danger'], ['terima', 'Terima', 'pb-save']] as [$a, $lbl, $cls]): ?>
+                        <form method="post" onsubmit="return confirm('<?= $lbl ?> pendaftaran <?= e($detail['nama']) ?>?')">
+                            <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+                            <input type="hidden" name="ekskul_id" value="<?= $eid ?>">
+                            <input type="hidden" name="tab" value="verifikasi">
+                            <input type="hidden" name="pendaftaran_id" value="<?= (int) $detail['id'] ?>">
+                            <input type="hidden" name="aksi" value="<?= $a ?>">
+                            <button type="submit" class="<?= $cls ?>" <?= ($a === 'terima' && !$bisaTerima) ? 'disabled title="Kuota penuh"' : '' ?>><?= $lbl ?></button>
+                        </form>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <a class="pb-close" href="<?= $tutupD ?>">Tutup</a>
+            </footer>
+        </div>
+    </div>
+<?php endif; ?>
 
 <?php if ($profil): $tutup = e(kurl(['ekskul' => $eid, 'tab' => 'aktif', 'q' => $q, 'kelas' => $kelas])); ?>
     <div class="pb-modal-back">

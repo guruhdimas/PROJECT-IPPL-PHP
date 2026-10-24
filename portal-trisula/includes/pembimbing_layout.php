@@ -8,13 +8,12 @@ function pembimbing_user(PDO $pdo, int $id): array
     $st = $pdo->prepare('SELECT id, nama FROM users WHERE id = ?');
     $st->execute([$id]);
     $u = $st->fetch() ?: ['id' => $id, 'nama' => 'Pembimbing'];
-    // Foto profil (tabel pembimbing_profil); kosong bila tabel belum ada
-    try {
-        $f = $pdo->prepare('SELECT foto FROM pembimbing_profil WHERE user_id = ?');
-        $f->execute([$id]);
-        $u['foto'] = (string) ($f->fetchColumn() ?: '');
+    $u['foto'] = '';
+    try {   // tabel pembimbing_profil dibuat oleh profil_pembimbing.sql; kalau belum ada, abaikan
+        $st = $pdo->prepare('SELECT foto FROM pembimbing_profil WHERE user_id = ?');
+        $st->execute([$id]);
+        $u['foto'] = (string) ($st->fetchColumn() ?: '');
     } catch (PDOException $e) {
-        $u['foto'] = '';
     }
     return $u;
 }
@@ -32,6 +31,29 @@ function pb_icon(string $name): string
         'user'      => '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     ];
     return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . ($p[$name] ?? '') . '</svg>';
+}
+
+/**
+ * Alamat halaman pembimbing berdasarkan nama halaman (kompatibel dengan dashboard/profil dari paket lain).
+ * Contoh: pb_url('jadwal') -> kelola_jadwal.php, pb_url('absensi', ['tab' => 'rekap']) -> kelola_absensi.php?tab=rekap
+ */
+function pb_url(string $page = '', array $q = []): string
+{
+    static $map = [
+        'dashboard'  => 'dashboard_pembimbing.php',
+        'anggota'    => 'kelola_anggota.php',
+        'jadwal'     => 'kelola_jadwal.php',
+        'tugas'      => 'kelola_tugas.php',
+        'absensi'    => 'kelola_absensi.php',
+        'pengumuman' => 'kelola_pengumuman.php',
+        'penilaian'  => 'kelola_penilaian.php',
+        'profil'     => 'profil_pembimbing.php',
+    ];
+    // normalisasi: "jadwal_pembimbing.php" / "kelola_jadwal" / "jadwal" -> "jadwal"
+    $key = strtolower(preg_replace('/\.php$/i', '', $page));
+    $key = preg_replace('/^kelola_/', '', preg_replace('/_pembimbing$/', '', $key));
+    $file = $map[$key] ?? ($page !== '' && !str_ends_with($page, '.php') ? $page . '.php' : $page);
+    return $file . ($q ? '?' . http_build_query($q) : '');
 }
 
 function pembimbing_header(string $title, string $active, array $user): void
@@ -56,6 +78,7 @@ function pembimbing_header(string $title, string $active, array $user): void
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/pembimbing.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/pembimbing.css') ?>">
+    <link rel="stylesheet" href="assets/css/pembimbing_kelola.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/pembimbing_kelola.css') ?>">
 </head>
 <body class="pb">
 <aside class="pb-side">
@@ -73,10 +96,11 @@ function pembimbing_header(string $title, string $active, array $user): void
 
 <div class="pb-main">
     <header class="pb-top">
-        <a href="profil_pembimbing.php" class="pb-who" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
-            <span class="pb-ava"><?php if (!empty($user['foto'])): ?><img src="<?= e($user['foto']) ?>" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block"><?php else: ?><?= pb_icon('user') ?><?php endif; ?></span>
+        <?php $linkProfil = is_file(__DIR__ . '/../profil_pembimbing.php'); ?>
+        <<?= $linkProfil ? 'a href="profil_pembimbing.php"' : 'div' ?> style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
+            <span class="pb-ava"><?php if (!empty($user['foto'])): ?><img src="<?= e($user['foto']) ?>" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%"><?php else: ?><?= pb_icon('user') ?><?php endif; ?></span>
             <div><b><?= e($user['nama']) ?></b><em>Pembimbing</em></div>
-        </a>
+        </<?= $linkProfil ? 'a' : 'div' ?>>
     </header>
     <main class="pb-page">
 <?php
