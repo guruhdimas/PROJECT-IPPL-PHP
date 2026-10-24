@@ -1,0 +1,42 @@
+/* ===== Kelola Tugas Pembimbing — tempel di PALING BAWAH assets/css/pembimbing.css ===== */
+.pb-tg-panel { border:1px solid #e2e8f0; }
+.pb-tg-head { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:20px 24px; border-bottom:1px solid #e5e7eb; }
+.pb-tg-head h2 { font-size:16px; font-weight:800; } .pb-tg-head p { font-size:13px; color:var(--mut); margin-top:2px; }
+.pb-tg-add { background:#0f4d30; color:#fff; font-weight:700; font-size:13px; border-radius:8px; padding:10px 18px; white-space:nowrap; }
+.pb-tg-add:hover { background:#0a5a3c; }
+
+.pb-tg-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding:22px 8%; }
+.pb-tg-card { border:1px solid #e2e8f0; border-radius:10px; padding:16px 18px; display:flex; flex-direction:column; gap:6px; background:#fff; }
+.pb-tg-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.pb-tg-top small { font-size:12px; font-weight:700; color:#0f4d30; }
+.pb-tg-chip { font-style:normal; font-size:11px; font-weight:700; border-radius:999px; padding:2px 10px; }
+.pb-tg-chip.on { background:#cfe6dc; color:#0f4d30; } .pb-tg-chip.off { background:#eef0f3; color:#5b6472; }
+.pb-tg-card h3 { font-size:16px; font-weight:700; color:#0f1f17; }
+.pb-tg-card p { font-size:13px; color:#64748b; }
+.pb-tg-dl { font-size:12px; color:#c00; margin-top:4px; }
+.pb-tg-count { align-self:flex-start; margin-top:8px; background:#e6f3ec; color:#0f4d30; font-weight:700; font-size:12px; border-radius:6px; padding:8px 12px; }
+.pb-tg-count:hover { background:#cfe6dc; }
+
+.pb-modal--wide { width:min(720px,100%); }
+.pb-modal--form { width:min(460px,100%); }
+.pb-tg-table { border:1px solid #d6dbe0; border-radius:8px; overflow:hidden; }
+.pb-tg-tr { display:grid; grid-template-columns:1.1fr 1.6fr 1fr .8fr 1fr .9fr; gap:10px; align-items:center; padding:10px 14px; border-top:1px solid #e5e7eb; font-size:13px; }
+.pb-tg-th { border-top:0; background:#e8f3ee; color:#004029; font-size:11px; font-weight:700; }
+.pb-tg-file { color:#0f4d30; overflow-wrap:anywhere; } .pb-tg-file:hover { text-decoration:underline; }
+.pb-tg-nilai { display:inline-block; min-width:54px; text-align:center; border:1px solid #d6dbe0; border-radius:8px; padding:8px 10px; font-weight:600; }
+.pb-tg-btn { display:inline-block; background:#0f4d30; color:#fff; font-weight:700; font-size:11px; border-radius:6px; padding:7px 12px; }
+.pb-tg-btn:hover { background:#0a5a3c; }
+.pb-save { background:#0f4d30; color:#fff; border:0; border-radius:8px; padding:9px 18px; font-weight:700; font-size:13px; cursor:pointer; }
+.pb-save:hover { background:#0a5a3c; }
+
+.pb-fl { display:block; margin-bottom:14px; } .pb-fl span { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+.pb-fl input, .pb-fl select, .pb-fl textarea { width:100%; border:1px solid #d6dbe0; border-radius:8px; padding:10px 12px; font:inherit; font-size:13px; background:#fff; }
+.pb-fl input:focus, .pb-fl select:focus, .pb-fl textarea:focus { outline:none; border-color:#0f4d30; }
+.pb-fl textarea { resize:vertical; }
+.pb-modal-body .pb-flash { margin-bottom:14px; }
+
+@media (max-width:1000px) {
+    .pb-tg-grid { grid-template-columns:1fr; padding:18px; }
+    .pb-tg-tr { grid-template-columns:1fr 1fr; }
+    .pb-tg-th { display:none; }
+}

@@ -5,10 +5,10 @@ require __DIR__ . '/includes/auth.php';
 $loginUrl = is_logged_in() ? home_for_role($_SESSION['user']['role']) : 'login.php';
 
 $pendiri = [
-    ['Dr. H. Arif Pratama, M.Pd.',  'Pendiri utama dan penggagas sekolah',   'Berperan merumuskan visi pendidikan, standar akademik, dan sistem pembinaan karakter siswa.'],
-    ['Dra. Siti Rahmawati, M.Pd.',  'Pendiri bidang kurikulum',              'Bertanggung jawab dalam konsep pengembangan kurikulum, metode pembelajaran, dan peningkatan kompetensi guru.'],
-    ['Ir. Bima Saputra, M.Kom.',    'Pendiri bidang teknologi dan inovasi',  'Menggagas pemanfaatan teknologi informasi, laboratorium komputer, dan program inovasi digital bagi siswa.'],
-    ['Dr. Maya Kusumawardani, M.M.','Pendiri bidang pengembangan siswa',     'Mengembangkan program kepemimpinan, kegiatan sosial, ekstrakurikuler, dan kemitraan masyarakat.'],
+    ['Dr. H. Arif Pratama, M.Pd.',  'Pendiri utama dan penggagas sekolah',   'Berperan merumuskan visi pendidikan, standar akademik, dan sistem pembinaan karakter siswa.', 'pendiri1.jpg'],
+    ['Dra. Siti Rahmawati, M.Pd.',  'Pendiri bidang kurikulum',              'Bertanggung jawab dalam konsep pengembangan kurikulum, metode pembelajaran, dan peningkatan kompetensi guru.', 'pendiri2.jpg'],
+    ['Ir. Bima Saputra, M.Kom.',    'Pendiri bidang teknologi dan inovasi',  'Menggagas pemanfaatan teknologi informasi, laboratorium komputer, dan program inovasi digital bagi siswa.', 'pendiri3.jpg'],
+    ['Dr. Maya Kusumawardani, M.M.','Pendiri bidang pengembangan siswa',     'Mengembangkan program kepemimpinan, kegiatan sosial, ekstrakurikuler, dan kemitraan masyarakat.', 'pendiri4.jpg'],
 ];
 $misi = [
     'Menyelenggarakan pendidikan berkualitas dengan pembelajaran yang kreatif dan inovatif.',
@@ -19,9 +19,9 @@ $misi = [
     'Menanamkan kepedulian terhadap lingkungan dan masyarakat.',
 ];
 $prestasi = [
-    ['Juara 1 Kompetisi Robotika Pelajar Nasional', '2025', 'Tim robotika berhasil meraih juara melalui inovasi robot pemilah sampah otomatis berbasis sensor.'],
-    ['Medali Emas Olimpiade Sains Pelajar',         '2025', 'Siswa memperoleh medali dalam kompetisi sains bidang informatika dan matematika.'],
-    ['Juara Turnamen Basket Antarpelajar',          '2024', 'Tim basket meraih gelar juara tingkat provinsi melalui pembinaan olahraga yang terarah.'],
+    ['Juara 1 Kompetisi Robotika Pelajar Nasional', '2025', 'Tim robotika berhasil meraih juara melalui inovasi robot pemilah sampah otomatis berbasis sensor.', 'prestasi1.jpg'],
+    ['Medali Emas Olimpiade Sains Pelajar',         '2025', 'Siswa memperoleh medali dalam kompetisi sains bidang informatika dan matematika.', 'prestasi2.jpg'],
+    ['Juara Turnamen Basket Antarpelajar',          '2024', 'Tim basket meraih gelar juara tingkat provinsi melalui pembinaan olahraga yang terarah.', 'prestasi3.jpg'],
 ];
 $stats = [['Siswa Baru 2025/2026', '320 Siswa'], ['Siswa Aktif', '1.248 Siswa'], ['Siswa International', '24 Siswa']];
 $ekskul = [
@@ -102,9 +102,9 @@ $keterangan = [
 <section class="block">
     <h2>PARA PENDIRI SEKOLAH</h2>
     <div class="founders">
-        <?php foreach ($pendiri as [$nama, $jabatan, $peranPendiri]): ?>
+        <?php foreach ($pendiri as [$nama, $jabatan, $peranPendiri, $foto]): ?>
             <article class="founder">
-                <div class="photo" aria-hidden="true"></div>
+                <div class="photo" style="background-image:url('assets/img/<?= e($foto) ?>')" role="img" aria-label="Foto <?= e($nama) ?>"></div>
                 <div><h3><?= e($nama) ?></h3><b><small><?= e($jabatan) ?></small></b><small><?= e($peranPendiri) ?></small></div>
             </article>
         <?php endforeach; ?>
@@ -126,16 +126,16 @@ $keterangan = [
 <section class="block" id="prestasi">
     <h2>PRESTASI UNGGULAN SEKOLAH</h2>
     <div class="awards">
-        <?php foreach ($prestasi as [$judul, $tahun, $desk]): ?>
+        <?php foreach ($prestasi as [$judul, $tahun, $desk, $foto]): ?>
             <article class="award">
-                <div class="thumb" aria-hidden="true"></div>
+                <div class="thumb" style="background-image:url('assets/img/<?= e($foto) ?>')" role="img" aria-label="<?= e($judul) ?>"></div>
                 <div><b><?= e($judul) ?></b><?= e($tahun) ?><br><?= e($desk) ?></div>
             </article>
         <?php endforeach; ?>
     </div>
 </section>
 
-<section class="stats">
+<section class="home-stats">
     <?php foreach ($stats as [$label, $nilai]): ?>
         <div><span><?= e($label) ?></span><strong><?= e($nilai) ?></strong></div>
     <?php endforeach; ?>
@@ -146,7 +146,7 @@ $keterangan = [
     <div class="cards">
         <?php foreach ($ekskul as [$judul, $desk, $gambar]): ?>
             <article class="card">
-                <div class="pic" style="background-image:url('assets/img/<?= e($gambar) ?>')"></div>
+                <div class="pic" style="background-image:url('assets/img/<?= e($gambar) ?>')" role="img" aria-label="<?= e($judul) ?>"></div>
                 <h3><?= e($judul) ?></h3>
                 <p><?= e($desk) ?></p>
             </article>
@@ -162,7 +162,7 @@ $keterangan = [
 </section>
 
 <div class="footer-logo">
-    <img src="assets/img/logo.png" alt="" style="margin:0 auto 8px;width:90px" onerror="this.style.display='none'">
+    <img src="assets/img/logo.png" alt="" style="margin:0 auto 8px;width:220px" onerror="this.style.display='none'">
     SMA TRISULA PRAJA
     <em>“Cerdas dalam Ilmu, Tangguh dalam Karakter, Unggul dalam Prestasi.”</em>
 </div>
