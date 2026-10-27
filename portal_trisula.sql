@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 24, 2026 at 04:58 PM
+-- Generation Time: Oct 27, 2026 at 04:53 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.33
 
@@ -240,7 +240,8 @@ INSERT INTO `info_komentar` (`id`, `pengumuman_id`, `user_id`, `nama`, `peran`, 
 (2, 1, NULL, 'Rina Kusuma', 'siswa', 'baik pak!', '2026-10-23 14:56:36'),
 (3, 1, 1, 'Budi Setiawan', 'siswa', 'j', '2026-10-23 15:42:43'),
 (4, 1, 1, 'Budi Setiawan 1', 'siswa', 'y', '2026-10-24 01:39:39'),
-(5, 1, 1, 'Budi Setiawan 1', 'siswa', 'TEST KOMEN', '2026-10-24 15:45:23');
+(5, 1, 1, 'Budi Setiawan 1', 'siswa', 'TEST KOMEN', '2026-10-24 15:45:23'),
+(6, 1, 2, 'Abdul Husein, S.T', 'pembimbing', 'Nice Bud', '2026-10-25 00:01:50');
 
 -- --------------------------------------------------------
 
@@ -833,7 +834,7 @@ ALTER TABLE `ekskul_tugas`
 -- AUTO_INCREMENT for table `info_komentar`
 --
 ALTER TABLE `info_komentar`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `info_pengumuman`
