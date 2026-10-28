@@ -104,7 +104,7 @@ siswa_header('Profil', 'profil', $user);   // 'profil' tidak ada di menu, jadi t
         <?php endif; ?>
 
         <?php if (!$edit): ?>
-            <div class="pf-actions"><a class="pf-btn" href="profil.php?edit=1">✎ Edit Profil</a></div>
+            <div class="pf-actions"><a class="pf-btn ghost" href="ubah_password.php">Ubah Password</a><a class="pf-btn" href="profil.php?edit=1">✎ Edit Profil</a></div>
             <div class="pf-fields">
                 <div class="pf-field"><span class="lbl">Nama Lengkap</span><div class="val"><?= e($user['nama']) ?></div></div>
                 <div class="pf-field"><span class="lbl">NIS</span><div class="val"><?= e($user['nis'] ?? '') ?></div></div>

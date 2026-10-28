@@ -117,6 +117,7 @@ pembimbing_header('Profil', 'profil', $me);
                 <a class="pbp-cancel" href="profil_pembimbing.php">Batal</a>
                 <button type="submit" form="pbp-form" class="pbp-btn">Simpan Perubahan</button>
             <?php else: ?>
+                <a class="pbp-cancel" href="ubah_password.php">Ubah Password</a>
                 <a class="pbp-btn" href="profil_pembimbing.php?edit=1">Edit Profil</a>
             <?php endif; ?>
         </div>
